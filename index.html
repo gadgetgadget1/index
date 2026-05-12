@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dental Pearls</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    body{
+      background:#fffdf8;
+      color:#222;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      left:0;
+      background:rgba(255,253,248,0.95);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .logo{
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:6px;
+      color:#111;
+      text-transform:uppercase;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#222;
+      margin-left:38px;
+      font-size:14px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav a:hover{
+      color:#8c7b67;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0%;
+      height:1px;
+      background:#8c7b67;
+      transition:0.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+
+      background:
+      linear-gradient(rgba(255,253,248,0.72), rgba(255,253,248,0.72)),
+      url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    .hero-content{
+      animation:fadeUp 1.2s ease;
+    }
+
+    .hero-content h1{
+      font-size:72px;
+      font-weight:700;
+      letter-spacing:2px;
+      margin-bottom:25px;
+      color:#111;
+    }
+
+    .hero-content p{
+      max-width:760px;
+      margin:auto;
+      font-size:18px;
+      line-height:2;
+      color:#555;
+      font-weight:300;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 34px;
+      text-decoration:none;
+      margin:10px;
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      transition:0.3s;
+      border-radius:3px;
+    }
+
+    .primary{
+      background:#b9a48a;
+      color:white;
+    }
+
+    .primary:hover{
+      background:#9f8a71;
+      transform:translateY(-3px);
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:110px 8%;
+    }
+
+    .section-title{
+      margin-bottom:55px;
+      text-align:center;
+    }
+
+    .section-title h2{
+      font-size:20px;
+      font-weight:500;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:#7d6d5b;
+      margin-bottom:15px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:40px;
+    }
+
+    .card{
+      background:#f7f1e8;
+      overflow:hidden;
+      transition:0.4s ease;
+      position:relative;
+      cursor:pointer;
+      border-radius:10px;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .card-top{
+      padding:38px;
+      min-height:145px;
+    }
+
+    .card-top h3{
+      font-size:22px;
+      line-height:1.5;
+      font-weight:500;
+      color:#111;
+      letter-spacing:1px;
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+      transition:transform 0.7s ease;
+    }
+
+    /* IMAGE MOVEMENT EFFECT */
+
+    .card:hover img{
+      transform:scale(1.1) rotate(1deg);
+    }
+
+    .card-content{
+      padding:34px;
+      background:#f7f1e8;
+    }
+
+    .card-content p{
+      color:#666;
+      line-height:1.9;
+      font-size:16px;
+      font-weight:300;
+    }
+
+    /* REVIEWS */
+
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:35px;
+    }
+
+    .review-card{
+      background:#f7f1e8;
+      padding:40px;
+      border-radius:10px;
+      transition:0.4s ease;
+    }
+
+    .review-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .stars{
+      color:#c5a572;
+      font-size:18px;
+      margin-bottom:20px;
+      letter-spacing:4px;
+    }
+
+    .review-card p{
+      line-height:2;
+      color:#555;
+      font-weight:300;
+    }
+
+    .review-card h4{
+      margin-top:25px;
+      color:#111;
+      letter-spacing:2px;
+      font-size:14px;
+      text-transform:uppercase;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      background:#f7f1e8;
+      padding:60px;
+      text-align:center;
+      border-radius:10px;
+    }
+
+    .contact-box h3{
+      font-size:30px;
+      letter-spacing:3px;
+      margin-bottom:25px;
+      color:#111;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+
+    .contact-box p{
+      margin:12px 0;
+      color:#555;
+      line-height:1.8;
+      font-weight:300;
+    }
+
+    iframe{
+      width:100%;
+      height:350px;
+      border:none;
+      margin-top:35px;
+      filter:grayscale(100%);
+      border-radius:10px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:#eee;
+      text-align:center;
+      padding:28px;
+      letter-spacing:2px;
+      font-size:13px;
+      text-transform:uppercase;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:18px;
+      }
+
+      nav a{
+        margin:0 10px;
+        font-size:12px;
+      }
+
+      .hero-content h1{
+        font-size:46px;
+      }
+
+      .hero-content p{
+        font-size:15px;
+      }
+
+      .contact-box{
+        padding:40px 25px;
+      }
+
+      .logo{
+        font-size:26px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">Dental Pearls</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Our Services</a>
+      <a href="#contact">Book Appointment</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>Your Smile, Perfected.</h1>
+
+      <p>
+        Welcome to Dental Pearls — a modern dental clinic focused on premium care,
+        advanced treatment, and comfortable patient experiences.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a class="btn primary"
+           href="https://wa.me/919611257364"
+           target="_blank">
+
+          Book on WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+      <h2>Dental Pearls Services</h2>
+    </div>
+
+    <div class="services">
+
+      <!-- CARD 1 -->
+
+      <div class="card">
+
+        <div class="card-top">
+          <h3>Teeth Cleaning</h3>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <p>
+            At Dental Pearls, we provide professional teeth cleaning services
+            that help maintain your oral health and bright smile.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="card">
+
+        <div class="card-top">
+          <h3>Kids Teeth Treatments</h3>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <p>
+            We specialize in gentle, kid-friendly dental treatments
+            to keep your little ones smiling confidently.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="card">
+
+        <div class="card-top">
+          <h3>Teeth Filling, Crowns & Bridges</h3>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <p>
+            Whether you need a simple filling or complete crown restoration,
+            we ensure durable and aesthetic results.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REVIEWS -->
+
+  <section id="reviews">
+
+    <div class="section-title">
+      <h2>Patient Reviews</h2>
+    </div>
+
+    <div class="reviews">
+
+      <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “Absolutely amazing experience. The clinic is modern,
+          clean and the doctors were incredibly professional.”
+        </p>
+
+        <h4>— Priya Sharma</h4>
+
+      </div>
+
+      <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “I got my aligners done here and the results were fantastic.
+          Friendly staff and painless treatment.”
+        </p>
+
+        <h4>— Rahul Mehta</h4>
+
+      </div>
+
+      <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “One of the best dental clinics I’ve visited.
+          Very hygienic and they explain everything clearly.”
+        </p>
+
+        <h4>— Sneha Kapoor</h4>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact-box">
+
+      <h3>Dental Pearls Clinic</h3>
+
+      <p>
+        📍 Dental Pearls - Dr. Pavitra,<br>
+        Vidyaranyapura Main Road,<br>
+        Opposite Bata Showroom,<br>
+        HMT Layout 5th Block,<br>
+        Vidyaranyapura, Bengaluru,<br>
+        Karnataka, India
+      </p>
+
+      <p>📞 +91 9611257364</p>
+
+      <p>☎ +91 8043711382</p>
+
+      <p>✉ dentalpearlsofficial@gmail.com</p>
+
+      <p>🕒 Mon - Sat : 9:00 AM - 8:00 PM</p>
+
+      <br>
+
+      <a
+        class="btn primary"
+        href="https://maps.google.com/?q=Dental+Pearls+Vidyaranyapura+Bengaluru"
+        target="_blank">
+
+        Open Location
+
+      </a>
+
+      <iframe
+        src="https://maps.google.com/maps?q=Dental%20Pearls%20Vidyaranyapura%20Bengaluru&z=15&output=embed"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Dental Pearls. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
